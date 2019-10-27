@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户登录</title>
+ <!-- 引入css、jq、 bootstrap、chart -->
+    <link href="css/bootstrap/3.3.6/bootstrap.min.css" th:src="@{css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet" />
+    <script src="js/jquery/2.0.0/jquery.min.js" th:src="@{js/jquery/2.0.0/jquery.min.js}"></script>
+    <script src="js/bootstrap/3.3.6/bootstrap.min.js" th:src="@{js/bootstrap/3.3.6/bootstrap.min.js}"></script>
+    <script src="js/chartjs/2.8.0/chart.min.js" th:src="@{js/chartjs/2.8.0/chart.min.js}"></script>
+
+<style type="text/css">
+#v1{
+	text-align: right;
+}
+#v2{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+</style>
+
+</head>
+<body>
+
+	<div id="v1">
+		<iframe allowtransparency="true" frameborder="0" width="385"
+			height="96" scrolling="no"
+			src="//tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=0&v=0&d=3&bd=0&k=000000&f=&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=72066&w=385&h=96&align=center">
+		</iframe>
+	</div>
+	
+	<div id="v2">
+		<form action="loginCheck" method="post">
+			学号：<input type="text" name="username"/><span th:text="${msg}" class="bg-danger"></span><br/>
+			<input type="hidden" name="user"/>
+			密码：<input type="password" name="password"/><br/>
+			<input type="submit" value="登录"/>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="userRegister"><span style="color: red">用户注册</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="AdminRegister"><span style="color: red">教师注册</span></a>
+		</form>
+	</div>
+
+</body>
+</html>
