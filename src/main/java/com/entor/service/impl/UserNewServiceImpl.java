@@ -24,24 +24,9 @@ public class UserNewServiceImpl extends ServiceImpl<UserNewMapper, UserNew> impl
 	@Autowired
 	private UserNewMapper userNewMapper;
 	
+	
 	/**
-	 * 添加用户的个人信息
-	 * @param userNew
-	 */
-	@Override
-	public void addUserNew(UserNew userNew) {
-		userNewMapper.insert(userNew);
-	}
-	/**
-	 * 修改用户的个人信息
-	 * @param userNew
-	 */
-	@Override
-	public void updateUserNew(UserNew userNew) {
-		userNewMapper.updateById(userNew);
-	}
-	/**
-	 * 查找用户的个人信息
+	 * 通過Uid查找的个人信息
 	 * @param id
 	 * @return
 	 */

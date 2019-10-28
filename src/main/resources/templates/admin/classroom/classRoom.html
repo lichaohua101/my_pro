@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>实验室管理</title>
+ <!-- 引入css、jq、 bootstrap、chart -->
+    <link href="css/bootstrap/3.3.6/bootstrap.min.css" th:src="@{css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet" />
+    <script src="js/jquery/2.0.0/jquery.min.js" th:src="@{js/jquery/2.0.0/jquery.min.js}"></script>
+    <script src="js/bootstrap/3.3.6/bootstrap.min.js" th:src="@{js/bootstrap/3.3.6/bootstrap.min.js}"></script>
+    <script src="js/chartjs/2.8.0/chart.min.js" th:src="@{js/chartjs/2.8.0/chart.min.js}"></script>
+
+</head>
+<body>
+
+	<div>
+		<table>
+			<tr>
+				<td>id</td>
+				<td>实验室名字</td>
+				<td>状态</td>
+				<td></td>
+			</tr>
+			<tr th:each="c:${list}">
+				<td th:text="${c.id}">id</td>
+				<td th:text="${c.className}">实验室名字</td>
+				<td th:if="${c.state}=='0'">可用</td>
+				<td th:if="${c.state}=='1'">占用</td>
+				<td><a th:href='@{/deleteclassRoom(id=${c.id})}'>删除</a>|<a th:href='@{/updateclassRoom(id=${c.id})}'>修改</a></td>
+			</tr>
+		</table>	
+	</div>
+
+	<div>
+		<form action="addclassRoom" method="post">
+			<input type="hidden" name="id">
+			<input type="hidden" value="0" name="state">
+			名字:<input type="text" name="className">
+			<input type="submit" value="添加">
+		</form>
+	</div>
+
+</body>
+</html>

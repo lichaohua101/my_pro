@@ -31,7 +31,7 @@ public class CollegeclassController {
 	private ICollegeclassService collegeclassService;
 	
 	// 有什么学院
-	@RequestMapping("/queryCollege")
+	@RequestMapping("/queryAllCollege")
 	private String queryCollege(Model model) {
 		List<Collegeclass> list = collegeclassService.queryCollege();
 		model.addAttribute("list1", list);
@@ -50,7 +50,7 @@ public class CollegeclassController {
 	private String deleteCollege(HttpServletRequest request, Model model) {
 		String college = request.getParameter("collegeName");
 		collegeclassService.deleteCollege(college);
-		return "redirect:queryCollege";
+		return "redirect:queryAllCollege";
 	}
 	//修改学院
 	@RequestMapping("/updateCollege")
@@ -66,7 +66,7 @@ public class CollegeclassController {
 		String upCollege = request.getParameter("upCollege");
 		System.out.println(college+"---"+upCollege);
 		collegeclassService.updateCollege(college, upCollege);
-		return "redirect:queryCollege";
+		return "redirect:queryAllCollege";
 	}
 	//查询班级的学生
 	@RequestMapping("/queryCollegeClassUser")
@@ -99,7 +99,7 @@ public class CollegeclassController {
 	@RequestMapping("/addCollegeClass")
 	private String addCollegeClass(Collegeclass collegeclass, HttpServletRequest request) {
 		collegeclassService.insert(collegeclass);
-		return "redirect:queryCollege";
+		return "redirect:queryAllCollege";
 	}
 }
 

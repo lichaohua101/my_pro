@@ -13,18 +13,9 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IUserNewService extends IService<UserNew> {
 	
+	
 	/**
-	 * 添加用户的个人信息
-	 * @param userNew
-	 */
-	public void addUserNew(UserNew userNew);
-	/**
-	 * 修改用户的个人信息
-	 * @param userNew
-	 */
-	public void updateUserNew(UserNew userNew);
-	/**
-	 * 查找用户的个人信息
+	 * 通過Uid查找的个人信息
 	 * @param id
 	 * @return
 	 */

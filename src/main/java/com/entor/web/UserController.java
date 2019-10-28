@@ -111,7 +111,7 @@ public class UserController {
 		SimpleHash hash = new SimpleHash("md5", user.getPassword(), "123", 2);
 		String enpassword = hash.toHex();
 		user.setPassword(enpassword);
-		userService.addUser(user);
+		userService.insert(user);
 		return "redirect:/login";
 	}
 	//删除一个用户
@@ -124,7 +124,7 @@ public class UserController {
 	//修改一个用户
 	@RequestMapping("/updateUserById")
 	public String updateUserById(int id,HttpServletRequest request,Model model) {
-		User user = userService.queryById(id);
+		User user = userService.selectById(id);
 		model.addAttribute("user", user);
 		return "admin/user/updateUser";
 	}
@@ -132,11 +132,11 @@ public class UserController {
 	@RequestMapping("/updateUserByIdF")
 	public String updateUserByIdF(User user,HttpServletRequest request,HttpServletResponse response) {
 		System.out.println(user);
-		userService.update(user);
+		userService.updateById(user);
 		//查询班级
 		Collegeclass collegeclass = collegeclassService.queryCCByUId(user.getId());
 		System.out.println(collegeclass);
-		return "redirect:queryCollege";
+		return "redirect:queryAllCollege";
 	}
 	//查询所有老师
 	@RequestMapping("/queryAllTeacher")

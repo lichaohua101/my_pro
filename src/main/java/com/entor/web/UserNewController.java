@@ -30,19 +30,19 @@ public class UserNewController {
 	@Autowired
 	private IUserNewService userNewService;
 	
-	//修改用户信息
+	//修改個人信息
 	@RequestMapping("/updateUserNew")
 	public String updateUserNew(int id,HttpServletRequest request,Model model) {
 		id = Integer.parseInt(request.getParameter("id"));
-		UserNew userNew = userNewService.queryByUid(id);
-		System.out.println("个人信息"+userNew);
+		UserNew userNew = userNewService.selectById(id);
 		model.addAttribute("userNew", userNew);
 		return "admin/user/updateUserNew"; 
 	}
+	//修改個人信息
 	@RequestMapping("/updateUserNewF")
 	public String updateUserNewF(UserNew userNew) {
+		userNewService.updateById(userNew);
 		System.out.println("修改为"+userNew);
-		userNewService.updateUserNew(userNew);
 		return "admin/index";
 	}
 	

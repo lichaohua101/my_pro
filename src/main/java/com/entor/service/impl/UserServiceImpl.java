@@ -25,39 +25,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 	@Autowired
 	private UserMapper userMapper;
-	/**
-	 * 添加一个用户
-	 * @param user
-	 */
-	@Override
-	public void addUser(User user) {
-		userMapper.insert(user);
-	}
-	/**
-	 * 删除一个用户
-	 * @param id
-	 */
-	@Override
-	public void deleteById(int id) {
-		userMapper.deleteById(id);
-	}
-	/**
-	 * 修改一个用户
-	 * @param user
-	 */
-	@Override
-	public void update(User user) {
-		userMapper.updateById(user);
-	}
-	/**
-	 * 查询一个用户
-	 * @param id
-	 * @return
-	 */
-	@Override
-	public User queryById(int id) {
-		return userMapper.selectById(id);
-	}
+	
+	
 	/**
 	 * 帐号查用户
 	 * @param username
