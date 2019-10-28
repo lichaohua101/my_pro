@@ -1,6 +1,7 @@
 package com.entor.web;
 
 
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -74,6 +75,31 @@ public class CollegeclassController {
 		List<User> list = collegeclassService.queryCollegeClassUser(id);
 		model.addAttribute("list", list);
 		return "admin/user/user";
+	}
+	//验证学院是否存在
+	@RequestMapping("/checkCollege")
+	private int checkCollege(HttpServletRequest request) {
+		int msg = 1;
+		List<Collegeclass> list = collegeclassService.queryCollege();
+		String college = request.getParameter("collegName");
+		for (Collegeclass c : list) {
+			if (c.getCollege()==college) {
+				msg=1;
+			}
+		}
+		return msg;
+	}
+	//验证班级是否存在
+	@RequestMapping("/checkCollegeClass")
+	private int checkCollegeClass(HttpServletRequest request) {
+		int msg = 1;
+		return msg;
+	}
+	//添加班级addCollegeClass
+	@RequestMapping("/addCollegeClass")
+	private String addCollegeClass(Collegeclass collegeclass, HttpServletRequest request) {
+		collegeclassService.insert(collegeclass);
+		return "redirect:queryCollege";
 	}
 }
 

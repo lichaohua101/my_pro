@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>个人信息</title>
+ <!-- 引入css、jq、 bootstrap、chart -->
+    <link href="css/bootstrap/3.3.6/bootstrap.min.css" th:src="@{css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet" />
+    <script src="js/jquery/2.0.0/jquery.min.js" th:src="@{js/jquery/2.0.0/jquery.min.js}"></script>
+    <script src="js/bootstrap/3.3.6/bootstrap.min.js" th:src="@{js/bootstrap/3.3.6/bootstrap.min.js}"></script>
+    <script src="js/chartjs/2.8.0/chart.min.js" th:src="@{js/chartjs/2.8.0/chart.min.js}"></script>
+</head>
+<body>
+
+<div>
+	<table>
+		<tr>
+			<td>id</td>
+			<td th:text="${userNew.id}"></td>
+		</tr>
+		<tr>
+			<td>uid</td>
+			<td th:text="${userNew.uid}"></td>
+		</tr>
+		<tr>
+			<td>年龄</td>
+			<td th:text="${userNew.age}"></td>
+		</tr>
+		<tr>
+			<td>专业</td>
+			<td th:text="${userNew.major}"></td>
+		</tr>
+		<tr>
+			<td>地址</td>
+			<td th:text="${userNew.address}"></td>
+		</tr>
+		<tr>
+			<td>电话</td>
+			<td th:text="${userNew.phone}"></td>
+		</tr>
+		<tr>
+			<td>院校</td>
+			<td th:text="${userNew.collegeclassId}"></td>
+		</tr>
+		<tr>
+			<td>班级</td>
+			<td th:text="${userNew.classroomId}"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a th:href='@{/updateUserNew(id=${userNew.uid})}'>修改</a></td>
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

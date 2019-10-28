@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>修改个人信息</title>
+ <!-- 引入css、jq、 bootstrap、chart -->
+    <link href="css/bootstrap/3.3.6/bootstrap.min.css" th:src="@{css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet" />
+    <script src="js/jquery/2.0.0/jquery.min.js" th:src="@{js/jquery/2.0.0/jquery.min.js}"></script>
+    <script src="js/bootstrap/3.3.6/bootstrap.min.js" th:src="@{js/bootstrap/3.3.6/bootstrap.min.js}"></script>
+    <script src="js/chartjs/2.8.0/chart.min.js" th:src="@{js/chartjs/2.8.0/chart.min.js}"></script>
+</head>
+<body>
+
+<div>
+	<form action="updateUserNewF" method="post">
+		<table>
+		<tr>
+			<td>id</td>
+			<td><input th:value="${userNew.id}" name="id"></td>
+		</tr>
+		<tr>
+			<td>uid</td>
+			<td><input th:value="${userNew.uid}" name="uid"></td>
+		</tr>
+		<tr>
+			<td>年龄</td>
+			<td><input th:value="${userNew.age}" name="age"></td>
+		</tr>
+		<tr>
+			<td>专业</td>
+			<td><input th:value="${userNew.major}" name="major"></td>
+		</tr>
+		<tr>
+			<td>地址</td>
+			<td><input th:value="${userNew.address}" name="address"></td>
+		</tr>
+		<tr>
+			<td>电话</td>
+			<td><input th:value="${userNew.phone}" name="phone"></td>
+		</tr>
+		<tr>
+			<td>院校</td>
+			<td><input th:value="${userNew.collegeclassId}" name="collegeclassId"></td>
+		</tr>
+		<tr>
+			<td>班级</td>
+			<td><input th:value="${userNew.classroomId}" name="classroomId"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="修改"></td>
+		</tr>
+	</table>
+	</form>
+</div>
+
+
+</body>
+</html>

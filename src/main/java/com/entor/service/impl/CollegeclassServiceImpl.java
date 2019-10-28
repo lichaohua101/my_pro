@@ -71,5 +71,14 @@ public class CollegeclassServiceImpl extends ServiceImpl<CollegeclassMapper, Col
 	public List<User> queryCollegeClassUser(int id) {
 		return collegeclassMapper.queryCollegeClassUser(id);
 	}
+	/**
+	 * 通过用户Id 查 用户的班级
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public Collegeclass queryCCByUId(int id) {
+		return collegeclassMapper.queryCCByUId(id);
+	}
 	
 }

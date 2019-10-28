@@ -45,5 +45,11 @@ public interface ICollegeclassService extends IService<Collegeclass> {
 	 * @return
 	 */
 	public List<User> queryCollegeClassUser(int id);
+	/**
+	 * 通过用户Id 查 用户的班级
+	 * @param id
+	 * @return
+	 */
+	public Collegeclass queryCCByUId(int id);
 	
 }

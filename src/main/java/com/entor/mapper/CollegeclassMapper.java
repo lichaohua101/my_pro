@@ -50,4 +50,11 @@ public interface CollegeclassMapper extends BaseMapper<Collegeclass> {
 	 */
 	@Select("SELECT u.* FROM collegeclass_details ccd ,`user` u WHERE u.id=ccd.userId and ccd.collegeCId= #{id}")
 	public List<User> queryCollegeClassUser(int id);
+	/**
+	 * 通过用户Id 查 用户的班级
+	 * @param id
+	 * @return
+	 */
+	@Select("SELECT collegeclass.* FROM collegeclass ,collegeclass_details  WHERE collegeclass_details.collegeCId=collegeclass.id and collegeclass_details.userId= #{id}")
+	public Collegeclass queryCCByUId(int id);
 }

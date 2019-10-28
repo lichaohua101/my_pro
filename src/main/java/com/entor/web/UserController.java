@@ -2,6 +2,7 @@ package com.entor.web;
 
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +17,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import com.entor.entity.Collegeclass;
 import com.entor.entity.User;
+import com.entor.entity.UserNew;
+import com.entor.service.ICollegeclassService;
+import com.entor.service.IUserNewService;
 import com.entor.service.IUserService;
 
 /**
@@ -34,6 +38,10 @@ public class UserController {
 	
 	@Autowired
 	private IUserService userService;
+	@Autowired
+	private ICollegeclassService collegeclassService;
+	@Autowired 
+	private IUserNewService userNewService;
 	
 	// 跳转到登录页面
 	@RequestMapping("/login")
@@ -125,7 +133,27 @@ public class UserController {
 	public String updateUserByIdF(User user,HttpServletRequest request,HttpServletResponse response) {
 		System.out.println(user);
 		userService.update(user);
-		return "redirect:/queryCollegeClassUser?id="+user.getId();
+		//查询班级
+		Collegeclass collegeclass = collegeclassService.queryCCByUId(user.getId());
+		System.out.println(collegeclass);
+		return "redirect:queryCollege";
+	}
+	//查询所有老师
+	@RequestMapping("/queryAllTeacher")
+	public String queryAllTeacher(Model model) {
+		List<User> list = userService.queryAllTeacher();
+		model.addAttribute("list", list);
+		return "admin/user/teacher";
+	}
+	//精确查询、个人资料修改
+	@RequestMapping("/queryUserNewByUsername")
+	public String queryUserByUsername(Model model,HttpServletRequest request) {
+		String username = request.getParameter("username");
+		User user = userService.queryUserByUsername(username);
+		System.out.println(user);
+		UserNew userNew = userNewService.queryByUid(user.getId());
+		model.addAttribute("userNew", userNew);
+		return "admin/user/userNew";
 	}
 	
 }

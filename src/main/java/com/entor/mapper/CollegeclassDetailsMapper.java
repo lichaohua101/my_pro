@@ -1,8 +1,10 @@
 package com.entor.mapper;
 
+import com.entor.entity.Collegeclass;
 import com.entor.entity.CollegeclassDetails;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
@@ -17,4 +19,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 @Mapper
 public interface CollegeclassDetailsMapper extends BaseMapper<CollegeclassDetails> {
 
+	
+	
 }
