@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.entor.entity.Collegeclass;
+import com.entor.entity.Role;
 import com.entor.entity.User;
 import com.entor.entity.UserNew;
 import com.entor.service.ICollegeclassService;
+import com.entor.service.IRoleService;
 import com.entor.service.IUserNewService;
 import com.entor.service.IUserService;
 
@@ -42,6 +44,8 @@ public class UserController {
 	private ICollegeclassService collegeclassService;
 	@Autowired 
 	private IUserNewService userNewService;
+	@Autowired
+	private IRoleService roleService;
 	
 	// 跳转到登录页面
 	@RequestMapping("/login")
@@ -150,10 +154,24 @@ public class UserController {
 	public String queryUserByUsername(Model model,HttpServletRequest request) {
 		String username = request.getParameter("username");
 		User user = userService.queryUserByUsername(username);
-		System.out.println(user);
-		UserNew userNew = userNewService.queryByUid(user.getId());
-		model.addAttribute("userNew", userNew);
-		return "admin/user/userNew";
+		if (user==null) { 
+			return "redirect:adminIndex";
+		}else {
+			UserNew userNew = userNewService.queryByUid(user.getId());
+			if (userNew==null) {
+				return "admin/user/addUserNew";
+			}
+			model.addAttribute("userNew", userNew);
+			return "admin/user/userNew";
+		}
+		
+	}
+	//写入用户的详细信息
+	@RequestMapping("/addUserNewF")
+	public String addUserNewF(UserNew userNew) {
+		System.out.println(userNew);
+		userNewService.insert(userNew);
+		return "redirect:adminIndex";
 	}
 	
 }

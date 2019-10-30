@@ -2,7 +2,10 @@ package com.entor.mapper;
 
 import com.entor.entity.Role;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
@@ -16,5 +19,5 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 @Mapper
 public interface RoleMapper extends BaseMapper<Role> {
-
+	
 }

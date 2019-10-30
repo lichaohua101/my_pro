@@ -1,6 +1,9 @@
 package com.entor.service;
 
 import com.entor.entity.Role;
+
+import java.util.List;
+
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IRoleService extends IService<Role> {
 	
+
 }

@@ -83,6 +83,7 @@ public class CollegeclassController {
 		List<Collegeclass> list = collegeclassService.queryCollege();
 		String college = request.getParameter("collegName");
 		for (Collegeclass c : list) {
+			System.out.println(c);
 			if (c.getCollege()==college) {
 				msg=1;
 			}

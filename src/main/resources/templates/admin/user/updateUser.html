@@ -9,6 +9,7 @@
     <script src="js/bootstrap/3.3.6/bootstrap.min.js" th:src="@{js/bootstrap/3.3.6/bootstrap.min.js}"></script>
     <script src="js/chartjs/2.8.0/chart.min.js" th:src="@{js/chartjs/2.8.0/chart.min.js}"></script>
 
+
 </head>
 <body>
 
@@ -22,8 +23,18 @@
 			学号：<input name="username" th:value="${user.username}">
 			密码：<input name="password" th:value="${user.password}">
 			别名：<input name="user" th:value="${user.user}">
-			角色：<input name="rid" th:value="${user.rid}">
-			状态：<input name="online" th:value="${user.online}">
+			<!-- 角色：<input name="rid" th:value="${user.rid}" id="rid"> -->
+			角色：<select name="rid">
+				<option value="1">管理员</option>
+				<option value="2">学生</option>
+				<option value="3">老师</option>
+			</select>
+			<!-- 状态：<input name="online" th:value="${user.online}"> -->
+			状态<select name="online">
+				<option value="0">不在线</option>
+				<option value="1">在线</option>
+			</select>
+			
 			<input type="submit" value="修改">
 		</form>	
 	</div>

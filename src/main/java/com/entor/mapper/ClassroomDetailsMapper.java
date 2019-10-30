@@ -25,7 +25,7 @@ public interface ClassroomDetailsMapper extends BaseMapper<ClassroomDetails> {
 	 * @param id
 	 * @return
 	 */
-	@Select("SELECT * FROM classroom_details crd WHERE crd.classRoomId=#{id} ORDER BY crd.loginTime")
+	@Select("SELECT * FROM classroom_details crd WHERE crd.classRoomId=#{id} ORDER BY crd.loginTime desc")
 	public List<ClassroomDetails> queryclassRoomD(int id);
 	
 }
