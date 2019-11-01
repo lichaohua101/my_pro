@@ -13,7 +13,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author LiChaoHua
- * @since 2019-10-27
+ * @since 2019-11-01
  */
 public class Collegeclass extends Model<Collegeclass> {
 
@@ -44,6 +44,10 @@ public class Collegeclass extends Model<Collegeclass> {
      * 班级使用时长
      */
 	private Integer Duration;
+    /**
+     * 使用实验室的次数
+     */
+	private Integer times;
 
 
 	public Integer getId() {
@@ -100,6 +104,15 @@ public class Collegeclass extends Model<Collegeclass> {
 		return this;
 	}
 
+	public Integer getTimes() {
+		return times;
+	}
+
+	public Collegeclass setTimes(Integer times) {
+		this.times = times;
+		return this;
+	}
+
 	public static final String ID = "id";
 
 	public static final String COLLEGE = "college";
@@ -111,6 +124,8 @@ public class Collegeclass extends Model<Collegeclass> {
 	public static final String REWARDID = "rewardID";
 
 	public static final String DURATION = "Duration";
+
+	public static final String TIMES = "times";
 
 	@Override
 	protected Serializable pkVal() {
@@ -126,6 +141,7 @@ public class Collegeclass extends Model<Collegeclass> {
 			", teacherId=" + teacherId +
 			", rewardID=" + rewardID +
 			", Duration=" + Duration +
+			", times=" + times +
 			"}";
 	}
 }

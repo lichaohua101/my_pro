@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>修改班级信息</title>
+ <!-- 引入css、jq、 bootstrap、chart -->
+    <link href="css/bootstrap/3.3.6/bootstrap.min.css" th:src="@{css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet" />
+    <script src="js/jquery/2.0.0/jquery.min.js" th:src="@{js/jquery/2.0.0/jquery.min.js}"></script>
+    <script src="js/bootstrap/3.3.6/bootstrap.min.js" th:src="@{js/bootstrap/3.3.6/bootstrap.min.js}"></script>
+    <script src="js/chartjs/2.8.0/chart.min.js" th:src="@{js/chartjs/2.8.0/chart.min.js}"></script>
+</head>
+<body>
+
+	<div>
+		<form action="updatecollegeClassByIdF" method="post">
+			<table>
+				<tr>
+					<td><input th:value="${cc.id}" name="id"></td>
+					<td><input th:value="${cc.college}" name="college"></td>
+					<td><input th:value="${cc.className}" name="className"></td>
+					<td><input th:value="${cc.teacherId}" name="teacherId"></td>
+					<td><input th:value="${cc.rewardID}" name="rewardID"></td>
+					<td><input type="submit" value="修改"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+</html>

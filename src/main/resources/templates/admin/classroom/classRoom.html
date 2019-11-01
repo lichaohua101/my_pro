@@ -19,6 +19,7 @@
 				<td>实验室名字</td>
 				<td>状态</td>
 				<td>详情</td>
+				<td>申请</td>
 				<td>操作</td>
 			</tr>
 			<tr th:each="c:${list}">
@@ -26,7 +27,8 @@
 				<td th:text="${c.className}">实验室名字</td>
 				<td th:if="${c.state}=='0'">可用</td>
 				<td th:if="${c.state}=='1'">占用</td>
-				<td><a th:href='@{/queryclassRoomD(id=${c.id})}'>安排</a></td>
+				<td><a th:href='@{/queryclassRoomDYES(id=${c.id})}'>安排</a></td>
+				<td><a th:href='@{/queryclassRoomDNO(id=${c.id})}'>查看</a></td>
 				<td><a th:href='@{/deleteclassRoomD(id=${c.id})}'>删除</a>|<a th:href='@{/updateclassRoomD(id=${c.id})}'>修改</a></td>
 			</tr>
 		</table>	

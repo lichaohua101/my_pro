@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>left</title>
+    </head>
+    <body>
+        <left th:fragment="left"> 
+        		我是左边侧栏
+
+	<div class="col-md-2 col-md-offset-5">
+		欢迎：<span th:text="${username}"></span> 管理员 <a href="logout">注销用户</a>
+	</div>
+
+	<div>
+		<form action="queryUserNewByUsername" method="post">
+			<tr>
+				<td><input type="text" name="username" placeholder="学号；工号"></td>
+				<td><input type="submit" value="查找"></td>
+			</tr>
+		</form>
+	</div>
+
+	</left>
+    </body>
+</html>

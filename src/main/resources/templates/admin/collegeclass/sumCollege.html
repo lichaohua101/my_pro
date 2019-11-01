@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>统计院校使用实验室</title>
+ <!-- 引入css、jq、 bootstrap、chart -->
+    <link href="css/bootstrap/3.3.6/bootstrap.min.css" th:src="@{css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet" />
+    <script src="js/jquery/2.0.0/jquery.min.js" th:src="@{js/jquery/2.0.0/jquery.min.js}"></script>
+    <script src="js/bootstrap/3.3.6/bootstrap.min.js" th:src="@{js/bootstrap/3.3.6/bootstrap.min.js}"></script>
+    <script src="js/chartjs/2.8.0/chart.min.js" th:src="@{js/chartjs/2.8.0/chart.min.js}"></script>
+</head>
+<body>
+
+	<div>
+		 <a id="output_table">导出</a>
+	</div>
+
+	<div>
+		<table id="table_content" border="1" width="700px" style="text-align: center;">
+			<tr>
+				<td>院校</td>
+				<td>班级</td>
+				<td>时长</td>
+				<td>次数</td>
+				<td>奖励</td>
+			</tr>
+			<tr th:each="c:${list}">
+				<td th:text="${c.college}">院校</td>
+				<td th:text="${c.className}">班级</td>
+				<td th:text="${c.Duration}">时长</td>
+				<td th:text="${c.times}">>次数</td>
+				<td th:text="${c.rewardID}"></td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	
+	
+    
+    <script>
+    // 核心：拼接完整的html格式文档并填充数据
+
+    //使用outerHTML属性获取整个table元素的HTML代码， 包括根标签<table></table>
+    // 自定义封装html格式文档<html><head></head><body></body></html>
+    // 设置字符集，告诉浏览器以utf8方式解析，避免乱码<meta charset='utf-8'/>
+    // 获取table数据并填充到自定义的html格式文档中
+    var table_content = document.querySelector("#table_content").outerHTML;
+    var html = "<html><head><meta charset='utf-8' /></head><body>" + table_content + "</body></html>";
+
+    // 实例化一个Blob对象，
+    // param1：包含文件内容的数组，
+    // param2：包含文件类型属性的对象
+    var blob = new Blob([html], {
+        type: "application/vnd.ms-excel"
+    });
+    var output_table = document.querySelector("#output_table");
+    // 利用URL.createObjectURL()方法为a元素生成blob URL
+    output_table.href = URL.createObjectURL(blob);
+    // 设置文件名，低级浏览器不支持
+    output_table.download = "学院班级上机统计报表.xls";
+    </script>
+    
+    
+</body>
+</html>

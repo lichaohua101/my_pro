@@ -19,6 +19,7 @@
 			开始时间:<input type="datetime" th:value="${CCD.loginTime}==null?'':${#dates.format(CCD.loginTime,'yyyy-MM-dd HH:mm')}" name="loginTimeD" placeholder="yyyy-MM-dd HH:mm">
 			结束世间:<input type="datetime" th:value="${CCD.exitTime}==null?'':${#dates.format(CCD.exitTime,'yyyy-MM-dd HH:mm')}"   name="exitTimeD" placeholder="yyyy-MM-dd HH:mm">
 			带课老师:<input type="text" th:value="${CCD.teacherId}" name="teacherId">
+			使用状态：<input type="text" th:value="${CCD.apply}" name="apply">
 			上课班级:<input type="text" th:value="${CCD.collegeId}"name="collegeId">
 			<input type="submit" value="修改">
 		</form>

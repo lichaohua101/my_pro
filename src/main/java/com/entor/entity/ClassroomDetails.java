@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
@@ -15,7 +18,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author LiChaoHua
- * @since 2019-10-27
+ * @since 2019-10-31
  */
 @TableName("classroom_details")
 public class ClassroomDetails extends Model<ClassroomDetails> {
@@ -31,10 +34,12 @@ public class ClassroomDetails extends Model<ClassroomDetails> {
     /**
      * 开始使用时间
      */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
 	private Date loginTime;
     /**
      * 结束使用时间
      */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
 	private Date exitTime;
     /**
      * 带课的老师
@@ -44,6 +49,10 @@ public class ClassroomDetails extends Model<ClassroomDetails> {
      * 使用的班级
      */
 	private Integer collegeId;
+    /**
+     * 0申请 1 已安排 2已经使用
+     */
+	private Integer Apply;
 
 
 	public Integer getId() {
@@ -100,6 +109,15 @@ public class ClassroomDetails extends Model<ClassroomDetails> {
 		return this;
 	}
 
+	public Integer getApply() {
+		return Apply;
+	}
+
+	public ClassroomDetails setApply(Integer Apply) {
+		this.Apply = Apply;
+		return this;
+	}
+
 	public static final String ID = "id";
 
 	public static final String CLASSROOMID = "classRoomId";
@@ -111,6 +129,8 @@ public class ClassroomDetails extends Model<ClassroomDetails> {
 	public static final String TEACHERID = "teacherId";
 
 	public static final String COLLEGEID = "collegeId";
+
+	public static final String APPLY = "Apply";
 
 	@Override
 	protected Serializable pkVal() {
@@ -126,6 +146,7 @@ public class ClassroomDetails extends Model<ClassroomDetails> {
 			", exitTime=" + exitTime +
 			", teacherId=" + teacherId +
 			", collegeId=" + collegeId +
+			", Apply=" + Apply +
 			"}";
 	}
 }

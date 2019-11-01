@@ -25,11 +25,34 @@ public class ClassroomDetailsServiceImpl extends ServiceImpl<ClassroomDetailsMap
 	private ClassroomDetailsMapper classroomDetailsMapper;	
 	
 	/**
+	 *  查询一个实验室的的 使用过的记录
+	 */
+	@Override
+	public List<ClassroomDetails> queryclassRoomDOver(int id) {
+		return classroomDetailsMapper.queryclassRoomDOver(id);
+	}
+	/**
 	 *  查询一个实验室的的 时间安排
 	 */
 	@Override
-	public List<ClassroomDetails> queryclassRoomD(int id) {
-		return classroomDetailsMapper.queryclassRoomD(id);
+	public List<ClassroomDetails> queryclassRoomDYES(int id) {
+		return classroomDetailsMapper.queryclassRoomDYES(id);
+	}
+	/**
+	 *  查询一个实验室的的 申请
+	 */
+	@Override
+	public List<ClassroomDetails> queryclassRoomDNO(int id) {
+		return classroomDetailsMapper.queryclassRoomDNO(id);
+	}
+	/**
+	 * 班级 使用实验室 过的记录
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public List<ClassroomDetails> queryClassRoomDByCollege(int id) {
+		return classroomDetailsMapper.queryClassRoomDByCollege(id);
 	}
 	
 }

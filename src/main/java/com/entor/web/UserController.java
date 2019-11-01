@@ -47,6 +47,11 @@ public class UserController {
 	@Autowired
 	private IRoleService roleService;
 	
+	//没有权限页面
+	@RequestMapping("/mistake")
+	public String mistake() {
+		return "mistake";
+	}
 	// 跳转到登录页面
 	@RequestMapping("/login")
 	public String login() {
@@ -84,7 +89,7 @@ public class UserController {
 		return "redirect:/login";
 	}
 	// 跳转到用户注册页面checkUsername
-	@RequestMapping("/userRegister")
+	@RequestMapping("/userRegister") 
 	public String userRegister() {
 		return "user/studentRegister";
 	}

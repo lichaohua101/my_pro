@@ -54,7 +54,8 @@
      	<table>
      		<tr th:each="c: ${list2}">
      			<td th:text="${c.college}"></td>
-     			<td><a th:text="${c.className}" th:href='@{/queryCollegeClassUser(id=${(c.id)})}'></a></td>
+     			<td><a th:text="${c.className}" th:href='@{/queryCollegeClassById(id=${(c.id)})}'></a></td>
+     			<td><a th:href='@{/deleteCollegeClassById(id=${(c.id)})}'>删除</a>|<a th:href='@{/queryCollegeClassUser(id=${(c.id)})}'>查看学生</a></td>
      		</tr>
      	</table>
     </div>

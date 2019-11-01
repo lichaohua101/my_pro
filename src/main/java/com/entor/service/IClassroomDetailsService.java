@@ -4,6 +4,7 @@ import com.entor.entity.ClassroomDetails;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
 
 import com.baomidou.mybatisplus.service.IService;
 
@@ -18,8 +19,21 @@ import com.baomidou.mybatisplus.service.IService;
 public interface IClassroomDetailsService extends IService<ClassroomDetails> {
 	
 	/**
+	 * 查询一个实验室的的 使用过的记录
+	 */
+	public List<ClassroomDetails> queryclassRoomDOver(int id);
+	/**
 	 * 查询一个实验室的的 时间安排
 	 */
-	public List<ClassroomDetails> queryclassRoomD(int id);
-	
+	public List<ClassroomDetails> queryclassRoomDYES(int id);
+	/**
+	 * 查询一个实验室的的 申请
+	 */
+	public List<ClassroomDetails> queryclassRoomDNO(int id);
+	/**
+	 * 班级 使用实验室 过的记录
+	 * @param id
+	 * @return
+	 */
+	public List<ClassroomDetails> queryClassRoomDByCollege(int id);
 }
