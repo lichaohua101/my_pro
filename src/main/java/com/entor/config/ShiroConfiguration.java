@@ -50,6 +50,9 @@ public class ShiroConfiguration {
 		filterChainDefinitionMap.put("/addUser", "anon");
 		//校验用户是否重复
 		filterChainDefinitionMap.put("/checkUsername", "anon");
+		//登录背景图片
+		filterChainDefinitionMap.put("/images/backgroundImages/login.png", "anon");
+		filterChainDefinitionMap.put("/images/aiwrap.png", "anon");
 		// <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
 		filterChainDefinitionMap.put("/**", "authc");
 		// 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面

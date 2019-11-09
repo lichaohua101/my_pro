@@ -59,7 +59,7 @@ public class UserController {
 	}
 	// 通过帐号 验证登录
 	@RequestMapping("/loginCheck")
-	public String loginCheck(String username, String password, Map<String, Object> map) {
+	public String loginCheck(String username, String password, Model model) {
 		System.out.println("明文密码" + password);
 		// 加密，加盐，防止编译的密码相同而被破解
 		SimpleHash hash = new SimpleHash("md5", password, "123", 2);
@@ -72,7 +72,7 @@ public class UserController {
 			// 后台首页
 			return "redirect:/adminIndex";
 		} catch (Exception e) {
-			map.put("msg", "账号或者密码错误");
+			model.addAttribute("msg", "账号或者密码错误");
 			return "redirect:/login";
 		}
 	}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 <title>教师注册</title>
@@ -11,7 +11,7 @@
 <script>
 	$(function() {
 
-		var flag = false;
+		var flag = true;
 		 $(".registerForm").submit(function(){
 			  return flag;
 		   });
@@ -33,7 +33,6 @@
 							  flag=false;
 		                    }else{
 							  $("#userCheck").html("学号可用"); 
-							  flag=true;
 		                    }
 					  }
 				});
@@ -43,6 +42,10 @@
 		$("#repassword,#password").blur(function() {
 			var password=$("#password").val();
 			$("#passCheck,#repassCheck").empty();
+			if(6!=password.length){
+				$("#passCheck").html("密码是六位数");
+				flag=false;
+			}
 			if(0==password.length){
 				$("#passCheck").html("密码不能为空");
 				flag=false;
@@ -52,19 +55,36 @@
 		            flag=false;
 		        }else{
 		        	 $("#repassCheck").html("重复密码一致");
-		        	 flag=true;
 		        }
 			}
 	});
 
 });
 </script>
+
 <style type="text/css">
-	#v1{
+/* div居中 */
+#v1{
   	  position: absolute;
   	  left:50%;
   	  top:50%;
    	  transform: translate(-50%, -50%);
+}
+/* 背景图 */
+body{
+	/*background: #eeeeee 0 0 no-repeat;*/
+	background-image:url("images/backgroundImages/login.png");
+    background-size: cover;
+    overflow: hidden;
+}
+table td{
+	/* border: 1px solid black;  */
+	width: 100px;
+	height:20px;
+	text-align: center;
+}
+#register-u{
+	text-align: left;
 }
 </style>
 
@@ -96,8 +116,8 @@
 				</tr>
 				<tr>
 					<td><input type="hidden" name="rid" value="3"/></td>
-					<td><input type="submit" class="btn btn-primary" value="注册" /></td>
-					<td><a href="login">去登录</a></td>
+					<td><input type="submit" class="btn btn-block btn-primary" value="注册" /></td>
+					<td><a href="login" style="color: red;">去登录</a></td>
 				</tr>
 			</table>
 		</form>
